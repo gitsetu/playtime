@@ -1,5 +1,9 @@
 import Hapi from "@hapi/hapi";
 import Vision from "@hapi/vision";
+
+import Cookie from "@hapi/cookie";
+import { accountsController } from "./controllers/accounts-controller.js";
+
 import Handlebars from "handlebars";
 import path from "path";
 
@@ -27,6 +31,19 @@ async function init() {
         layout: true,
         isCached: false,
     });
+
+    await server.register(Cookie);
+    server.auth.strategy("session", "cookie", {
+        cookie: {
+            name: "playtime",
+            password: "secretpasswordnotrevealedtoanyone",
+            isSecure: false,
+        },
+        redirectTo: "/",
+        validate: accountsController.validate,
+    });
+    server.auth.default("session");
+
     db.init();
     server.route(webRoutes);
     await server.start();
