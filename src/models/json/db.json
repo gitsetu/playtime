@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "firstName": "a",
+      "lastName": "a",
+      "email": "a@a.co",
+      "password": "a",
+      "_id": "d9b41140-4015-474a-9168-5859ca89528a"
+    }
+  ],
+  "playlists": [],
+  "tracks": []
+}
