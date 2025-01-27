@@ -1,5 +1,6 @@
 import Hapi from "@hapi/hapi";
 import Vision from "@hapi/vision";
+import Joi from "joi";
 
 import dotenv from "dotenv";
 const result = dotenv.config();
@@ -50,6 +51,8 @@ async function init() {
         validate: accountsController.validate,
     });
     server.auth.default("session");
+
+    server.validator(Joi);
 
     db.init();
     server.route(webRoutes);
