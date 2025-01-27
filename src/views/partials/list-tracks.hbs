@@ -18,6 +18,13 @@
             <td>
                 {{duration}}
             </td>
+            <td>
+                <a href="/playlist/{{../playlist._id}}/deletetrack/{{_id}}" class="button">
+                    <span class="icon is-small">
+                        <i class="fas fa-trash"></i>
+                    </span>
+                </a>
+            </td>
         </tr>
     {{/each}}
     </tbody>

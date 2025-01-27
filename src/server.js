@@ -1,6 +1,13 @@
 import Hapi from "@hapi/hapi";
 import Vision from "@hapi/vision";
 
+import dotenv from "dotenv";
+const result = dotenv.config();
+if (result.error){
+    console.log(result.error.message);
+    process.exit(1);
+}
+
 import Cookie from "@hapi/cookie";
 import { accountsController } from "./controllers/accounts-controller.js";
 
@@ -35,8 +42,8 @@ async function init() {
     await server.register(Cookie);
     server.auth.strategy("session", "cookie", {
         cookie: {
-            name: "playtime",
-            password: "secretpasswordnotrevealedtoanyone",
+            name: process.env.cookie_name,
+            password: process.env.cookie_password,
             isSecure: false,
         },
         redirectTo: "/",
