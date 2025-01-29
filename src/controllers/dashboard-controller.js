@@ -20,7 +20,7 @@ export const dashboardController = {
             payload: PlaylistSpec,
             options: { abortEarly: false },
             failAction: function (request, h, error){
-                return h.view("signup-view", { title: "Sign up error", errors: error.details }).takeover().code(400);
+                return h.view("dashboard-view", { title: "Add playlist error", errors: error.details }).takeover().code(400);
             },
         },
         handler: async function (request, h) {
