@@ -7,13 +7,13 @@ import { playlistJsonStore } from "./json/playlist-json-store.js";
 import { trackJsonStore } from "./json/track-json-store.js";
 
 export const db = {
-    userStore: null,
-    playlistStore: null,
-    trackStore: null,
+  userStore: null,
+  playlistStore: null,
+  trackStore: null,
 
-    init() {
-        this.userStore = userJsonStore;
-        this.playlistStore = playlistJsonStore;
-        this.trackStore = trackJsonStore;
-    },
+  init() {
+    this.userStore = userJsonStore;
+    this.playlistStore = playlistJsonStore;
+    this.trackStore = trackJsonStore;
+  },
 };
